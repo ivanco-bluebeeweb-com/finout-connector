@@ -1,3 +1,9 @@
-# Finout Connector - AUTH_AND_CREDENTIALS.md
+# Finout Connector — Auth & Credentials Standard
 
-Standard documentation for Finout Connector in Imperal Cloud.
+**Compliance:** AUTH_AND_CREDENTIALS_STANDARD.md (B1–B10)
+
+## Схема аутентификации
+- **Метод:** API Key (Authorization: Bearer <token>)
+- **Хранение:** Секреты сохраняются изолированно в хранилище секретов платформы Imperal.
+- **Валидация:** При сохранении ключа выполняется тестовый запрос `GET /v1/reports`.
+- **Отключение:** Удаление локальных ключей без воздействия на аккаунт вендора.

@@ -1,3 +1,30 @@
-# Finout Connector - PREPARATION.md
+# Finout Connector — Preparation
 
-Standard documentation for Finout Connector in Imperal Cloud.
+**Category:** C41. Cloud Cost Management (FinOps)  
+**Status:** App Preparation Complete (Genuinely Vendor-Specific)  
+**Standard:** APP_PREPARATION_STANDARD.md
+
+## 1. Паспорт коннектора
+- **Название:** Finout Connector (`finout-connector`)
+- **Официальный портал вендора:** https://finout.io
+- **Базовый API:** `https://api.finout.io/v1`
+- **Модель аутентификации:** API Key (Authorization: Bearer <token>)
+- **Назначение:** Интеграция платформы Imperal Cloud с Finout для автоматизации предметной области: объединение мульcloud-счетов (AWS, GCP, Azure, Snowflake, Datadog) в единый FinOps-дашборд с Unit Cost.
+
+## 2. Решаемая проблема
+Когда **FinOps-практик** сталкивается с задачей **объединение мульcloud-счетов (AWS, GCP, Azure, Snowflake, Datadog) в единый FinOps-дашборд с Unit Cost**, возникает необходимость ручного мониторинга, дублирования статусов и переключения между окнами. Это приводит к потере времени, замедлению реакции на инциденты и ошибкам ручного ввода.
+
+## 3. Роли и права доступа
+- **FinOps-практик, финансовый контроллер, облачный архитектор**
+- Принцип наименьших привилегий (Least Privilege): токен запрашивает доступ только к разрешенным операциям чтения и подтвержденным действиям.
+
+## 4. Ключевые сущности
+виртуальные теги (/megabills), статьи затрат (/costs), аномалии (/anomalies), KPI стоимости единицы юнита
+
+## 5. Первичный рабочий сценарий
+`сбор затрат за период -> аллокация расходов по командам через MegaBill -> выгрузка отчета руководству`.
+
+## 6. Границы коннектора
+- Изолированное хранение секретов (BYOC).
+- Никаких фиктивных методов сторонних предметных областей.
+- Деструктивные операции требуют явного подтверждения пользователя.
