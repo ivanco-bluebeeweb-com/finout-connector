@@ -9,8 +9,8 @@ class NoParams(BaseModel):
 
 class ConnectParams(BaseModel):
     label: str = Field(default="", description="Friendly connection label, e.g. Primary Finout.")
-    api_key: str = Field(description="FinOps API Key")
-    base_url: str = Field(default="https://api.finout.io/v1", description="Finout API base URL.")
+    api_key: str = Field(description="Finout API credentials: <client_id>:<secret_key> or Personal Bearer Token")
+    base_url: str = Field(default="https://app.finout.io", description="Finout API base URL.")
 
 class ConnectionIdParams(BaseModel):
     connection_id: str = Field(default="", description="Connection identifier (empty uses active connection).")
